@@ -99,8 +99,10 @@ a:not(#current a):hover {
 
 /* Showcase */
 #showcase {
+  /* Using min-height so the height for this section will expand for smaller screen sizes */
+  min-height: 400px;
+
   background-image: url("laptop.png");
-  height: 400px;
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -143,7 +145,8 @@ a:not(#current a):hover {
 
 /* Boxes */
 #boxes {
-  height: 400px;
+  /* Fit content allows for the space (Height in this example) to change to fit the content inside the element */
+  height: fit-content;
 }
 
 #boxes .container {
@@ -224,4 +227,29 @@ footer {
   padding: 20px;
   text-align: center;
   margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header .container,
+  #newsletter .container,
+  #boxes .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  header ul {
+    padding: 0;
+  }
+
+  .box {
+    width: 80%;
+  }
+
+  #about .container,
+  #services .container {
+    grid-template-columns: 1fr;
+  }
 }
